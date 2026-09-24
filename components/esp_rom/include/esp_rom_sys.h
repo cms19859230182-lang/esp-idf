@@ -13,6 +13,9 @@
 extern "C" {
 #endif
 
+void esp_rom_software_reset_system(void);
+void esp_rom_software_reset_cpu(int cpu_no);
+
 /**
  * @brief Print formated string to console device
  * @note float and long long data are not supported!
