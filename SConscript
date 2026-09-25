@@ -1058,6 +1058,7 @@ if GetDepend(['SOC_ESP32_C6']):
             path.append(inc)
 
     src = [p for p in src if all(part not in p.replace('\\', '/') for part in ('gdma', '/aes/dma/', '/sha/dma/'))]
+    src = [p for p in src if not p.endswith('.cpp')]
 
     if GetDepend(['BSP_ENABLE_GDBSTUB']):
         src += [
@@ -1067,7 +1068,7 @@ if GetDepend(['SOC_ESP32_C6']):
             'components/esp_gdbstub/src/packet.c',
         ]
 
-    CPPDEFINES = ['IDF_VER=\\"999\\\"', 'PROJECT_VER=\\"999\\"', '_GNU_SOURCE', 'MULTI_HEAP_FREERTOS', 'ESP_PLATFORM=1', 'IDF_TARGET=esp32c6', 'SOC_ESP32_C6', 'SOC_MMU_PAGE_SIZE=0x10000', '_POSIX_READER_WRITER_LOCKS', 'PROJECT_NAME=\\"rtthread\\"', 'MBEDTLS_CONFIG_FILE=\\"mbedtls/esp_config.h\\"', 'ESPRESSIF_USE', 'CONFIG_CRYPTO_MBEDTLS', 'UNITY_INCLUDE_CONFIG_H', '__ets__', 'ESP_PLATFORM']
+    CPPDEFINES = ['IDF_VER=\\"999\\\"', 'PROJECT_VER=\\"999\\"', '_GNU_SOURCE', 'MULTI_HEAP_FREERTOS', 'ESP_PLATFORM=1', 'IDF_TARGET=esp32c6', 'SOC_MMU_PAGE_SIZE=0x10000', '_POSIX_READER_WRITER_LOCKS', 'PROJECT_NAME=\\"rtthread\\"', 'MBEDTLS_CONFIG_FILE=\\"mbedtls/esp_config.h\\"', 'ESPRESSIF_USE', 'CONFIG_CRYPTO_MBEDTLS', 'UNITY_INCLUDE_CONFIG_H', '__ets__', 'ESP_PLATFORM']
     LIB_PATH = []
     LIB = []
 
