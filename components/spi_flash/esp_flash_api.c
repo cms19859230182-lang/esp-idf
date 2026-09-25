@@ -169,7 +169,7 @@ static IRAM_ATTR esp_err_t flash_end_flush_cache(esp_flash_t* chip, esp_err_t er
 /* Top-level API functions, calling into chip_drv functions via chip->drv */
 
 static esp_err_t detect_spi_flash_chip(esp_flash_t *chip);
-static esp_err_t IRAM_ATTR read_id_core(esp_flash_t *chip, uint32_t *out_id, bool sanity_check);
+static esp_err_t read_id_core(esp_flash_t *chip, uint32_t *out_id, bool sanity_check);
 
 bool esp_flash_chip_driver_initialized(const esp_flash_t *chip)
 {

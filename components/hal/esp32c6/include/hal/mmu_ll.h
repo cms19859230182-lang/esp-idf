@@ -284,6 +284,19 @@ static inline bool mmu_ll_check_entry_valid(uint32_t mmu_id, uint32_t entry_id)
 }
 
 /**
+ * Get MMU table entry is invalid
+ *
+ * @param mmu_id   MMU ID
+ * @param entry_id MMU entry ID
+ * return true for MMU entry is invalid, false for valid
+ */
+__attribute__((always_inline))
+static inline bool mmu_ll_get_entry_is_invalid(uint32_t mmu_id, uint32_t entry_id)
+{
+    return !mmu_ll_check_entry_valid(mmu_id, entry_id);
+}
+
+/**
  * Get the MMU table entry target
  *
  * @param mmu_id   MMU ID
